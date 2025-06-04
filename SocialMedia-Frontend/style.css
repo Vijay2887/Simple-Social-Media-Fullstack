@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+body {
+  background-color: #1e1e1e;
+  color: white;
+  /* padding: 20px 40px; */
+}
+.custom-scrollbar {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #9ca3af transparent;
+}
+
+/* Chrome, Edge, Safari */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px; /* Thin line */
+  height: 0px; /* No horizontal scrollbar if any */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent; /* No track color */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #9ca3af; /* Tailwind gray-400 */
+  border-radius: 10px;
+  border: none;
+}
+
+/* Hide scrollbar buttons (up/down arrows) */
+.custom-scrollbar::-webkit-scrollbar-button {
+  display: none;
+  height: 0;
+  width: 0;
+}
+
+/* For modern browsers */
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
