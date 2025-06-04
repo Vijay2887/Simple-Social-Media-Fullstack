@@ -34,3 +34,23 @@ A basic fullstack social media application that allows users to register, log in
 | Auth         | Passport.js    |
 | Database     | MySQL          |
 | Styling      | Tailwind CSS   |
+
+**Cloning the Repository**
+```bash
+    git clone https://github.com/Vijay2887/Simple-Social-Media-Fullstack.git
+    cd Simple-Social-Media-Fullstack
+```
+**Setup Backend**
+```bash
+  cd SocialMedia-Backend
+  npm install
+  npm run start
+```
+**Setup Frontend**
+```bash
+  cd ../SocialMedia-Frontend
+  npm install
+  npm run dev
+```
+
+
