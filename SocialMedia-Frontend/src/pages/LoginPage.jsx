@@ -1,8 +1,9 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useReducer, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
+  const inputRef = useRef(null);
   const navigate = useNavigate();
   const [newUser, setNewUser] = useState({
     username: "",
@@ -33,6 +34,10 @@ const LoginPage = () => {
     });
   };
 
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
   return (
     <div className="flex justify-center h-screen items-center">
       <div className="flex flex-col items-center border-gray-400 border-2 px-10 py-4 w-[300px] rounded-lg gap-y-4 sm:w-[420px] shrink-0">
@@ -52,6 +57,7 @@ const LoginPage = () => {
                   return { ...n, username: e.target.value };
                 });
               }}
+              ref={inputRef}
             />
           </div>
 

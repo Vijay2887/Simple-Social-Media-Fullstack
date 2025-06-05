@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import CommentComponent from "./CommentComponent";
 import axios from "axios";
 import commentImage from "../assets/comment.png";
 import likeImage from "../assets/like.png";
 import shareImage from "../assets/share.png";
 import bookmarkImage from "../assets/bookmark.png";
+import { myContext } from "../context";
 
-const PostComponent = (props) => {
-  const { post, currentLoginUser, setAllPosts, setCurrentLoginUser } = props;
+const PostComponent = () => {
+  const context = useContext(myContext);
+  const { post, currentLoginUser, setAllPosts, setCurrentLoginUser } = context;
   const [commentsClicked, setCommentsClicked] = useState(false);
 
   const handleCommentsClick = () => {

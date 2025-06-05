@@ -1,8 +1,9 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 const RegisterPage = () => {
+  const inputRef = useRef(null);
   const [newUser, setNewUser] = useState({
     username: "",
     email: "",
@@ -38,6 +39,11 @@ const RegisterPage = () => {
     }
   };
 
+  // automatically focusing the first input field on each render
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
   return (
     <div className="flex justify-center h-screen items-center">
       <div className="flex flex-col items-center border-gray-400 border-2 px-10 py-4 w-[300px] rounded-lg gap-y-4 sm:w-[420px] shrink-0">
@@ -56,6 +62,7 @@ const RegisterPage = () => {
                   return { ...n, username: e.target.value };
                 });
               }}
+              ref={inputRef}
             />
           </div>
 

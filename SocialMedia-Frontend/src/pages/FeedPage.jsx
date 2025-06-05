@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PostComponent from "../components/PostComponent";
+import { myContext } from "../context";
 
 const FeedPage = () => {
   const navigate = useNavigate();
@@ -63,12 +64,21 @@ const FeedPage = () => {
       {allPosts.map((post, index) => {
         return (
           <div key={index} className="mt-2">
-            <PostComponent
-              post={post}
-              currentLoginUser={currentLoginUser}
-              setAllPosts={setAllPosts}
-              setCurrentLoginUser={setCurrentLoginUser}
-            />
+            <myContext.Provider
+              value={{
+                post,
+                currentLoginUser,
+                setAllPosts,
+                setCurrentLoginUser,
+              }}
+            >
+              <PostComponent
+              // post={post}
+              // currentLoginUser={currentLoginUser}
+              // setAllPosts={setAllPosts}
+              // setCurrentLoginUser={setCurrentLoginUser}
+              />
+            </myContext.Provider>
           </div>
         );
       })}
